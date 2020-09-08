@@ -58,29 +58,7 @@ print("Logged IN...")
 element = "//input[@value='מילוי הצהרת בריאות']"
 checkForButton = browser.find_elements_by_xpath(element)
 LenCheckForButton = len(checkForButton)
-if KidCovid == 'yuval':
-    try:
-        browser.find_element_by_xpath('//*[@id="main-content"]/section[1]/div/health-declaration/div/div[1]/div/div[5]/div/div/input').click()
-        time.sleep( 2 )
-        browser.find_element_by_xpath("//input[@value='אישור']").click()
-        time.sleep( 2 )
-        fullpage_screenshot()
-    except:
-        fullpage_screenshot()
-    else:
-        fullpage_screenshot()
-elif KidCovid == 'omer':
-    try:
-        browser.find_element_by_xpath('//*[@id="main-content"]/section[1]/div/health-declaration/div/div[2]/div/div[5]/div/div/input').click()
-        time.sleep( 2 )
-        browser.find_element_by_xpath("//input[@value='אישור']").click()
-        time.sleep( 2 )
-        fullpage_screenshot()
-    except:
-        fullpage_screenshot()
-    else:
-        fullpage_screenshot()
-elif KidCovid == 'sign':
+if KidCovid == 'sign':
     print("starting Sign..")
     print(len(checkForButton))
     if int(LenCheckForButton) == 0:

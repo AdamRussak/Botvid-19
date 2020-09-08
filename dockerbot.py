@@ -55,38 +55,12 @@ def handle(msg):
     PicDate = now.strftime("%m/%d/%Y")
 
     print ('Got command: %s')%command
-    if command == '/yuval':
-        v_Kid = "yuval"
-        try:
-            subprocess.check_output(['python', '/etc/Health_Staytments.py', '-u', v_UserId, '-p', v_UserKey, '-k', v_Kid])
-            for file in os.listdir("/opt"):
-                if file.endswith(".png"):
-                    Image = os.path.join("/opt", file)
-            bot.sendPhoto(chat_id=chat_id, photo=open(str(Image), 'rb', caption=str(PicDate)))
-            os.remove(str(Image))
-        except:
-            x = "Error"
-            bot.sendMessage(chat_id,x)
-    elif command == '/omer':
-        v_Kid = "omer"
-        try:
-            subprocess.check_output(['python', '/etc/Health_Staytments.py', '-u', v_UserId, '-p', v_UserKey, '-k', v_Kid])
-            for file in os.listdir("/opt"):
-                if file.endswith(".png"):
-                    Image = os.path.join("/opt", file)
-            bot.sendPhoto(chat_id=chat_id, photo=open(str(Image), 'rb'))
-            os.remove(str(Image))
-        except:
-            x = "Error"
-            bot.sendMessage(chat_id,x)
-    elif command == '/sign':
+    if command == '/sign':
         v_Kid = "sign"
         try:
-            x = "Started Task"
+            x = "Task Started (will take 10s+-)"
             bot.sendMessage(chat_id,x)
             subprocess.check_output(['python', '/etc/Health_Staytments.py', '-u', v_UserId, '-p', v_UserKey, '-k', v_Kid])
-            x = "finished Selenium Script"
-            bot.sendMessage(chat_id,x)
             for file in os.listdir("/opt"):
                 if file.endswith(".png"):
                     Image = os.path.join("/opt", file)
